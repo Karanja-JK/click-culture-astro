@@ -1,1 +1,160 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ClickCulture Digital — token-driven design system.
+ * Re-theme the entire site by editing the values in :root / .dark only.
+ * Never hardcode colors in components — always use semantic Tailwind classes.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-base: var(--bg-base);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--accent);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--text-primary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-foreground: var(--text-primary);
+  --color-secondary: var(--surface);
+  --color-secondary-foreground: var(--text-primary);
+  --color-muted: var(--surface);
+  --color-muted-foreground: var(--text-muted);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--text-primary);
+  --color-destructive: oklch(0.6 0.22 25);
+  --color-destructive-foreground: var(--text-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 200ms;
+  --dur-base: 400ms;
+  --dur-slow: 800ms;
+}
+
+:root,
+.dark {
+  --radius: 0.5rem;
+
+  /* Brand tokens (hex → oklch) */
+  --bg-base: oklch(0.18 0.025 250);          /* #0E1620 */
+  --surface: oklch(0.24 0.03 245);           /* #172737 */
+  --surface-2: oklch(0.28 0.035 245);        /* #1E2D3D */
+  --border: oklch(0.32 0.04 245);            /* #24364A */
+  --text-primary: oklch(1 0 0);              /* #FFFFFF */
+  --text-muted: oklch(0.66 0.02 245);        /* #8590A0 */
+  --accent: oklch(0.52 0.22 258);            /* #0B5ED8 */
+  --accent-hover: oklch(0.65 0.17 258);      /* #3D7FE3 */
+  --accent-soft: oklch(0.96 0.02 258);       /* #EAF1FC */
+
+  --background: var(--bg-base);
+  --foreground: var(--text-primary);
+
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces Variable", "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-base);
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--accent) 60%, transparent);
+    color: var(--text-primary);
+  }
+}
+
+/* Motion utilities */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity var(--dur-slow) var(--ease-out-expo),
+      transform var(--dur-slow) var(--ease-out-expo);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* Light "breather" variant — applied to select sections only (Results, Logos).
+   Overrides tokens locally; accent colours are intentionally unchanged. */
+.section-light {
+  --bg-base:      oklch(0.97 0.005 250);   /* #F7F9FB */
+  --surface:      oklch(0.97 0.005 250);
+  --surface-2:    oklch(0.94 0.008 250);
+  --border:       oklch(0.88 0.012 250);   /* light separator */
+  --text-primary: oklch(0.24 0.03 245);    /* #172737 navy */
+  --text-muted:   oklch(0.47 0.025 245);   /* #5A6B7B */
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

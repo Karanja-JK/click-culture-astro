@@ -1,0 +1,21 @@
+---
+import '../styles/global.css';
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "ClickCulture Digital is a marketing and creative agency in Nairobi that builds marketing which drives action, conversion, and growth." } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="bg-base text-text-primary">
+    <slot />
+  </body>
+</html>
