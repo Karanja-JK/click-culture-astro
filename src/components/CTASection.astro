@@ -1,0 +1,35 @@
+---
+import Container from './Container.astro';
+import { Button } from './Button';
+import { Mail, Phone } from 'lucide-react';
+---
+<section class="border-t border-border py-24 md:py-32">
+  <Container class="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+    <div data-reveal class="space-y-8">
+      <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Let's talk</p>
+      <h2 class="font-display text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[1.02] tracking-tight text-text-primary">
+        Let's build something <br />
+        <span class="text-accent-hover">that works.</span>
+      </h2>
+      <Button magnetic asChildHref="/contact" client:visible>
+        Book a Strategy Call
+      </Button>
+    </div>
+    <div data-reveal class="space-y-6 lg:pb-4">
+      <a href="mailto:marketing@clickculturedigital.com" class="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-accent">
+        <Mail size={20} className="mt-1 text-accent-hover" />
+        <span class="flex flex-col">
+          <span class="text-xs uppercase tracking-[0.18em] text-text-muted">Email</span>
+          <span class="text-sm text-text-primary">marketing@clickculturedigital.com</span>
+        </span>
+      </a>
+      <a href="tel:+254727808264" class="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-accent">
+        <Phone size={20} className="mt-1 text-accent-hover" />
+        <span class="flex flex-col">
+          <span class="text-xs uppercase tracking-[0.18em] text-text-muted">Phone</span>
+          <span class="text-sm text-text-primary">+254 727 808 264 · +254 711 206 304</span>
+        </span>
+      </a>
+    </div>
+  </Container>
+</section>

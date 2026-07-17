@@ -1,0 +1,39 @@
+---
+import Container from './Container.astro';
+
+const ITEMS = [
+  { title: "Commercial Outcomes First", body: "Every strategy rooted in clear business objectives, focused on measurable results that impact the bottom line, not vanity metrics." },
+  { title: "Strategic Execution", body: "We don't just plan, we deliver, translating high-level strategy into consistent, impactful execution." },
+  { title: "Scalable Systems", body: "Structured, repeatable systems designed for consistency and adaptability, so campaigns scale as the business grows." },
+  { title: "Unwavering Professionalism", body: "Clarity, intentional communication, and a credible, well-positioned brand across every touchpoint." },
+];
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+<section class:list={["py-24 md:py-32", className]}>
+  <Container>
+    <div data-reveal class="mb-16 max-w-2xl space-y-5">
+      <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Why Us</p>
+      <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
+        Why <span class="text-accent-hover">ClickCulture</span>?
+      </h2>
+    </div>
+    <div class="grid gap-y-14 sm:grid-cols-2 sm:gap-x-16 lg:gap-x-24">
+      {ITEMS.map((item, i) => {
+        const n = String(i + 1).padStart(2, "0");
+        return (
+          <div data-reveal class="group flex flex-col gap-5">
+            <div class="flex items-center gap-4">
+              <span class="font-display text-sm text-accent-hover transition-colors duration-300 group-hover:text-text-primary">{n}</span>
+              <span class="h-px flex-1 bg-border transition-colors duration-300 group-hover:bg-accent/40"></span>
+            </div>
+            <h3 class="font-display text-2xl font-medium leading-tight tracking-tight text-text-primary md:text-3xl">{item.title}</h3>
+            <p class="text-base leading-relaxed text-text-muted">{item.body}</p>
+          </div>
+        );
+      })}
+    </div>
+  </Container>
+</section>

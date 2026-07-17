@@ -1,0 +1,27 @@
+---
+import type { LucideIcon } from "lucide-react";
+
+interface Props {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  to: string;
+  hash: string;
+}
+const { icon: Icon, title, description, to, hash } = Astro.props;
+---
+<a href={`${to}#${hash}`} class="block h-full">
+  <div
+    data-reveal
+    class="group relative flex h-full flex-col gap-6 rounded-2xl border border-border bg-surface p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-accent hover:bg-surface-2 cursor-pointer"
+  >
+    <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-base text-accent-hover transition-colors duration-500 group-hover:bg-accent group-hover:text-text-primary">
+      <Icon size={22} strokeWidth={1.6} />
+    </div>
+    <div class="space-y-3">
+      <h3 class="font-display text-2xl font-medium text-text-primary">{title}</h3>
+      <p class="text-sm leading-relaxed text-text-muted">{description}</p>
+    </div>
+    <div class="mt-auto h-px w-12 bg-border transition-all duration-500 group-hover:w-24 group-hover:bg-accent-hover"></div>
+  </div>
+</a>

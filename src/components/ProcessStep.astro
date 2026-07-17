@@ -1,0 +1,21 @@
+---
+interface Props {
+  index: number;
+  title: string;
+  description: string;
+  isLast?: boolean;
+}
+const { index, title, description, isLast = false } = Astro.props;
+const n = String(index).padStart(2, "0");
+---
+<div data-reveal class="relative flex flex-col gap-5">
+  <div class="flex items-center gap-4">
+    <span class="font-display text-sm text-accent-hover">{n}</span>
+    <span class="h-px flex-1 bg-border"></span>
+  </div>
+  <h3 class="font-display text-3xl font-medium text-text-primary">{title}</h3>
+  <p class="text-sm leading-relaxed text-text-muted">{description}</p>
+  {!isLast && (
+    <span class="absolute right-0 top-2 hidden h-px w-8 bg-border lg:block"></span>
+  )}
+</div>

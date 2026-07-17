@@ -1,0 +1,54 @@
+---
+import Container from './Container.astro';
+import logoMark from '../assets/logo-mark.png';
+
+const year = new Date().getFullYear();
+
+const navItems = [
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+const socialItems = ["Instagram", "LinkedIn", "TikTok"];
+---
+<footer class="border-t border-border bg-base py-16">
+  <Container class="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <div class="space-y-5">
+      <a href="/" class="flex items-center gap-3">
+        <img src={logoMark.src} alt="ClickCulture Digital" class="h-10 w-10 object-contain" />
+        <span class="font-display text-base font-semibold tracking-tight text-text-primary">
+          ClickCulture<span class="text-accent-hover">.</span>
+        </span>
+      </a>
+      <p class="max-w-xs text-sm leading-relaxed text-text-muted">
+        A marketing and creative agency that drives demand, conversion, and growth.
+      </p>
+      <p class="text-xs uppercase tracking-[0.18em] text-text-muted">Nairobi, Kenya</p>
+    </div>
+    <div class="space-y-3">
+      <h4 class="text-xs uppercase tracking-[0.18em] text-text-muted">Navigate</h4>
+      {navItems.map((i) => (
+        <a href={i.href} class="block text-sm text-text-primary hover:text-accent-hover">{i.label}</a>
+      ))}
+    </div>
+    <div class="space-y-3">
+      <h4 class="text-xs uppercase tracking-[0.18em] text-text-muted">Contact</h4>
+      <a href="mailto:marketing@clickculturedigital.com" class="block text-sm text-text-primary hover:text-accent-hover">
+        marketing@clickculturedigital.com
+      </a>
+      <a href="tel:+254727808264" class="block text-sm text-text-muted hover:text-text-primary">+254 727 808 264</a>
+      <a href="tel:+254711206304" class="block text-sm text-text-muted hover:text-text-primary">+254 711 206 304</a>
+    </div>
+    <div class="space-y-3">
+      <h4 class="text-xs uppercase tracking-[0.18em] text-text-muted">Social</h4>
+      {socialItems.map((s) => (
+        <a href="#" rel="noopener noreferrer" class="block text-sm text-text-primary hover:text-accent-hover">{s}</a>
+      ))}
+    </div>
+  </Container>
+  <Container class="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 md:flex-row md:items-center">
+    <p class="text-xs text-text-muted">© {year} ClickCulture Digital. All rights reserved.</p>
+    <p class="text-xs text-text-muted">Built for brands that want to be chosen, not just seen.</p>
+  </Container>
+</footer>
