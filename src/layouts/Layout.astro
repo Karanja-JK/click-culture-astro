@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/fraunces';
+import { WhatsAppWidget } from '../components/WhatsAppWidget';
 interface Props {
   title: string;
   description?: string;
@@ -19,5 +20,6 @@ const { title, description = "ClickCulture Digital is a marketing and creative a
   </head>
   <body class="bg-base text-text-primary">
     <slot />
+    <WhatsAppWidget client:load />
   </body>
 </html>

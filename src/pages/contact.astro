@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Nav } from '../components/Nav';
+import Footer from '../components/Footer.astro';
+import { ContactForm } from '../components/ContactForm';
+import ContactDetails from '../components/ContactDetails.astro';
+---
+<Layout title="Contact: ClickCulture Digital" description="Let's build something that works. Reach out to ClickCulture Digital in Nairobi.">
+  <Nav currentPath={Astro.url.pathname} client:load />
+  <main>
+    <ContactForm client:load />
+    <ContactDetails />
+  </main>
+  <Footer />
+</Layout>

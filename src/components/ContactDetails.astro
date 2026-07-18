@@ -1,0 +1,50 @@
+---
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { FaInstagram, FaLinkedin, FaTiktok, FaYoutube } from 'react-icons/fa6';
+import Container from './Container.astro';
+
+const CONTACT_DETAILS = [
+  { icon: Mail, label: "Email", value: "marketing@clickculturedigital.com", href: "mailto:marketing@clickculturedigital.com" },
+  { icon: Phone, label: "Primary line", value: "+254 727 808 264", href: "tel:+254727808264" },
+  { icon: Phone, label: "Secondary line", value: "+254 711 206 304", href: "tel:+254711206304" },
+  { icon: MapPin, label: "Location", value: "Nairobi, Kenya", href: null },
+];
+const SOCIALS = [
+  { icon: FaInstagram, label: "Instagram", href: "#" },
+  { icon: FaLinkedin, label: "LinkedIn", href: "#" },
+  { icon: FaTiktok, label: "TikTok", href: "#" },
+  { icon: FaYoutube, label: "YouTube", href: "#" },
+];
+---
+<section class="border-t border-border section-light py-24 md:py-32">
+  <Container>
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      {CONTACT_DETAILS.map((d) => {
+        const Icon = d.icon;
+        const inner = (
+          <div class="group flex flex-col gap-4">
+            <div class="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-base/50 transition-colors duration-300 group-hover:border-accent">
+              <Icon size={16} className="text-accent-hover" />
+            </div>
+            <p class="text-xs uppercase tracking-[0.18em] text-text-muted">{d.label}</p>
+            <p class="text-sm leading-relaxed text-text-primary">{d.value}</p>
+          </div>
+        );
+        return d.href ? <a href={d.href}>{inner}</a> : <div>{inner}</div>;
+      })}
+    </div>
+    <div class="mt-16 flex flex-col gap-6 border-t border-border pt-10 sm:flex-row sm:items-center sm:gap-8">
+      <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Follow us</p>
+      <div class="flex flex-wrap items-center gap-4">
+        {SOCIALS.map((s) => {
+          const Icon = s.icon;
+          return (
+            <a href={s.href} aria-label={s.label} class="group flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors duration-300 hover:border-accent">
+              <Icon size={16} className="text-text-muted transition-colors duration-300 group-hover:text-accent-hover" />
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </Container>
+</section>
