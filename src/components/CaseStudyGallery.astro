@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import Container from './Container.astro';
+
+interface GalleryGroup {
+  name: string;
+  images: ImageMetadata[];
+}
+interface Props {
+  images?: ImageMetadata[];
+  groups?: GalleryGroup[];
+}
+const { images, groups } = Astro.props;
+const hasContent = (images && images.length > 0) || (groups && groups.length > 0);
+---
+{hasContent && (
+  <section class="border-b border-border py-24 md:py-32">
+    <Container>
+      <p data-reveal class="mb-16 text-xs uppercase tracking-[0.22em] text-text-muted">Gallery</p>
+      {groups && groups.length > 0 ? (
+        <div class="flex flex-col gap-16">
+          {groups.map((group) => (
+            <div data-reveal>
+              <h3 class="mb-6 font-display text-2xl font-medium text-text-primary">{group.name}</h3>
+              <div class="columns-2 gap-6 md:columns-3">
+                {group.images.map((img, i) => (
+                  <Image
+                    src={img}
+                    layout="constrained"
+                    width={1000}
+                    quality={100}
+                    format="webp"
+                    loading="lazy"
+                    class="relative mb-4 w-full rounded-xl border border-border break-inside-avoid transition-transform duration-300 ease-out hover:z-10 hover:scale-[1.06] hover:shadow-xl cursor-pointer"
+                    alt={`${group.name} photo ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="columns-2 gap-6 md:columns-3">
+          {images!.map((img, i) => (
+            <Image
+              src={img}
+              layout="constrained"
+              width={1000}
+              quality={100}
+              format="webp"
+              loading="lazy"
+              class="relative mb-4 w-full rounded-xl border border-border break-inside-avoid transition-transform duration-300 ease-out hover:z-10 hover:scale-[1.06] hover:shadow-xl cursor-pointer"
+              alt={`Gallery photo ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </Container>
+  </section>
+)}

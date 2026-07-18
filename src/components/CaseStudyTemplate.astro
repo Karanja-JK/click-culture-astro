@@ -1,0 +1,96 @@
+---
+import { Image } from 'astro:assets';
+import Container from './Container.astro';
+import { StatBlock } from './StatBlock';
+import { Button } from './Button';
+import CaseStudyGallery from './CaseStudyGallery.astro';
+
+export interface StatDef {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+}
+export interface CaseStudyData {
+  client: string;
+  subBrands: string;
+  tag: string;
+  tagline: string;
+  challenge: string;
+  whatWeDid: Array<{ lead: string; body: string }>;
+  results: StatDef[];
+  heroImage?: ImageMetadata;
+  gallery?: ImageMetadata[];
+  galleryGroups?: Array<{ name: string; images: ImageMetadata[] }>;
+}
+interface Props {
+  data: CaseStudyData;
+}
+const { data } = Astro.props;
+---
+<section class="border-b border-border pt-40 pb-20">
+  <Container>
+    <a href="/work" class="mb-12 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-text-muted transition-colors hover:text-text-primary">
+      ← All work
+    </a>
+    <p class="text-xs uppercase tracking-[0.22em] text-text-muted">{data.tag}</p>
+    <h1 class="mt-4 font-display text-[clamp(3rem,7vw,6rem)] font-medium leading-[1.02] tracking-tight">{data.client}</h1>
+    {data.subBrands && <p class="mt-3 text-sm tracking-wide text-text-muted">{data.subBrands}</p>}
+    <p class="mt-8 max-w-2xl text-xl leading-relaxed text-text-muted md:text-2xl">{data.tagline}</p>
+    {data.heroImage && (
+      <Image src={data.heroImage} loading="eager" quality={100} format="webp" width={1200} class="mt-10 w-full max-w-3xl rounded-2xl" alt={data.client} />
+    )}
+  </Container>
+</section>
+<section class="border-b border-border section-light py-24 md:py-32">
+  <Container>
+    <div class="grid gap-8 md:gap-16 md:grid-cols-[1fr_2fr]">
+      <div data-reveal><p class="text-xs uppercase tracking-[0.22em] text-text-muted">The Challenge</p></div>
+      <p data-reveal class="text-lg leading-relaxed text-text-muted md:text-xl">{data.challenge}</p>
+    </div>
+  </Container>
+</section>
+<section class="border-b border-border py-24 md:py-32">
+  <Container>
+    <p data-reveal class="mb-16 text-xs uppercase tracking-[0.22em] text-text-muted">What We Did</p>
+    <div class="grid gap-12 sm:grid-cols-2">
+      {data.whatWeDid.map((item, i) => {
+        const n = String(i + 1).padStart(2, "0");
+        return (
+          <div data-reveal class="flex flex-col gap-5">
+            <div class="flex items-center gap-4">
+              <span class="font-display text-sm text-accent-hover">{n}</span>
+              <span class="h-px flex-1 bg-border"></span>
+            </div>
+            <h3 class="font-display text-2xl font-medium text-text-primary">{item.lead}</h3>
+            <p class="text-base leading-relaxed text-text-muted">{item.body}</p>
+          </div>
+        );
+      })}
+    </div>
+  </Container>
+</section>
+<section class="border-b border-border section-light py-24 md:py-32">
+  <Container>
+    <p data-reveal class="mb-16 text-xs uppercase tracking-[0.22em] text-text-muted">Results</p>
+    <div class="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      {data.results.map((stat) => (
+        <StatBlock {...stat} client:visible />
+      ))}
+    </div>
+  </Container>
+</section>
+<CaseStudyGallery images={data.gallery} groups={data.galleryGroups} />
+<section class="py-24 md:py-32">
+  <Container class="text-center">
+    <p data-reveal class="text-xs uppercase tracking-[0.22em] text-text-muted">Ready to drive demand?</p>
+    <h2 data-reveal class="mt-6 font-display text-[clamp(2rem,4vw,3.5rem)] font-medium leading-tight tracking-tight">
+      Let's build something that <span class="text-accent-hover">moves the market.</span>
+    </h2>
+    <div data-reveal class="mt-10 flex flex-wrap items-center justify-center gap-6">
+      <Button magnetic asChildHref="/contact" client:visible>Start a conversation</Button>
+      <a href="/work" class="inline-flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-text-primary">← Back to all work</a>
+    </div>
+  </Container>
+</section>

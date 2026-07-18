@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Nav } from '../../components/Nav';
+import Footer from '../../components/Footer.astro';
+import CaseStudyTemplate from '../../components/CaseStudyTemplate.astro';
+import { CASE_STUDIES } from '../../data/case-studies';
+
+export function getStaticPaths() {
+  return CASE_STUDIES.map((c) => ({
+    params: { slug: c.slug },
+    props: { data: c },
+  }));
+}
+
+const { data } = Astro.props;
+const title = `${data.client}: ClickCulture Digital`;
+---
+<Layout title={title} description={data.tagline}>
+  <Nav currentPath={Astro.url.pathname} client:load />
+  <main>
+    <CaseStudyTemplate data={data} />
+  </main>
+  <Footer />
+</Layout>
