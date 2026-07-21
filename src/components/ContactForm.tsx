@@ -3,7 +3,7 @@ import { Mail, Phone, ArrowRight } from "lucide-react";
 import { Button } from "./Button";
 import { cn } from "../lib/utils";
 
-const WEB3FORMS_ACCESS_KEY = "REPLACE_ME"; // placeholder — swap once key is available
+const WEB3FORMS_ACCESS_KEY = "52ff309f-bd30-46b7-866e-5f31c93365e3";
 
 type FormState = {
   name: string;
