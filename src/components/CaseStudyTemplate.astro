@@ -31,13 +31,13 @@ const { data } = Astro.props;
 ---
 <section class="border-b border-border pt-40 pb-20">
   <Container>
-    <a href="/work" class="mb-12 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-text-muted transition-colors hover:text-text-primary">
+    <a href="/work" class="mb-12 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-text-muted transition-colors hover:text-text-primary opacity-0 [animation:fade-in_0.6s_cubic-bezier(0.16,1,0.3,1)_0.05s_forwards]">
       ← All work
     </a>
-    <p class="text-xs uppercase tracking-[0.22em] text-text-muted">{data.tag}</p>
-    <h1 class="mt-4 font-display text-[clamp(3rem,7vw,6rem)] font-medium leading-[1.02] tracking-tight">{data.client}</h1>
-    {data.subBrands && <p class="mt-3 text-sm tracking-wide text-text-muted">{data.subBrands}</p>}
-    <p class="mt-8 max-w-2xl text-xl leading-relaxed text-text-muted md:text-2xl">{data.tagline}</p>
+    <p class="text-xs uppercase tracking-[0.22em] text-text-muted opacity-0 [animation:fade-in_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">{data.tag}</p>
+    <h1 class="mt-4 font-display text-[clamp(3rem,7vw,6rem)] font-medium leading-[1.02] tracking-tight opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_0.4s_forwards]">{data.client}</h1>
+    {data.subBrands && <p class="mt-3 text-sm tracking-wide text-text-muted opacity-0 [animation:fade-in_0.8s_cubic-bezier(0.16,1,0.3,1)_0.55s_forwards]">{data.subBrands}</p>}
+    <p class="mt-8 max-w-2xl text-xl leading-relaxed text-text-muted md:text-2xl opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_0.7s_forwards]">{data.tagline}</p>
     {data.heroImage && (
       <Image src={data.heroImage} loading="eager" quality={100} format="webp" width={1200} class="mt-10 w-full max-w-3xl rounded-2xl" alt={data.client} />
     )}

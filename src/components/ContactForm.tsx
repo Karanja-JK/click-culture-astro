@@ -75,14 +75,14 @@ export function ContactForm() {
               style={{ left: "35%", top: "60%" }}
             />
             <div className="relative z-10 flex flex-col gap-8">
-              <p className="text-xs uppercase tracking-[0.22em] text-text-muted">Let's talk</p>
-              <h1 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-medium leading-[1.05] tracking-tight">
+              <p className="text-xs uppercase tracking-[0.22em] text-text-muted opacity-0 [animation:fade-in_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">Let's talk</p>
+              <h1 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-medium leading-[1.05] tracking-tight opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_0.25s_forwards]">
                 Let's build something <span className="text-accent-hover">that works.</span>
               </h1>
-              <p className="max-w-sm text-base leading-relaxed text-text-muted">
+              <p className="max-w-sm text-base leading-relaxed text-text-muted opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_0.45s_forwards]">
                 Tell us about your brand, your goals, and what's not working. We'll take it from there.
               </p>
-              <div className="mt-2 flex flex-col gap-3">
+              <div className="mt-2 flex flex-col gap-3 opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_0.65s_forwards]">
                 <a href="mailto:marketing@clickculturedigital.com" className="flex items-center gap-3 text-sm text-text-muted transition-colors hover:text-accent-hover">
                   <Mail size={14} className="flex-shrink-0 text-accent-hover" />
                   marketing@clickculturedigital.com

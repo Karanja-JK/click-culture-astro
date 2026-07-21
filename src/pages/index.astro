@@ -44,19 +44,19 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
       </div>
       <Container>
         <div class="max-w-5xl">
-          <p class="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-text-muted">
+          <p class="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-text-muted opacity-0 [animation:fade-in_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">
             <span class="inline-block h-px w-10 bg-text-muted"></span>
             ClickCulture Digital · Nairobi
           </p>
-          <h1 class="font-display text-[clamp(3rem,8.5vw,8rem)] font-medium leading-[0.98] tracking-tight">
+          <h1 class="font-display text-[clamp(3rem,8.5vw,8rem)] font-medium leading-[0.98] tracking-tight opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_0.25s_forwards]">
             We don't create content. <br />
             <span class="text-accent-hover">We create demand.</span>
           </h1>
-          <p class="mt-10 max-w-2xl text-lg leading-relaxed text-text-muted">
+          <p class="mt-10 max-w-2xl text-lg leading-relaxed text-text-muted opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_0.5s_forwards]">
             A marketing and creative agency focused on making brands commercially effective,
             building marketing that drives action, conversion, and growth.
           </p>
-          <div class="mt-12 flex flex-wrap items-center gap-4">
+          <div class="mt-12 flex flex-wrap items-center gap-4 opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_0.7s_forwards]">
             <Button magnetic asChildHref="/contact" client:visible>
               Book a Strategy Call
             </Button>
@@ -69,7 +69,7 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
       <a
         href="#positioning"
         aria-label="Scroll down"
-        class="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-[0.22em] text-text-muted md:flex"
+        class="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-[0.22em] text-text-muted md:flex opacity-0 [animation:fade-in_1s_cubic-bezier(0.16,1,0.3,1)_1.2s_forwards]"
       >
         Scroll
         <span class="block h-10 w-px animate-pulse bg-border"></span>
