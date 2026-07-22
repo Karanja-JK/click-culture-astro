@@ -15,7 +15,7 @@ export function getStaticPaths() {
 const { data } = Astro.props;
 const title = `${data.client}: ClickCulture Digital`;
 ---
-<Layout title={title} description={data.tagline}>
+<Layout title={title} description={data.metaDescription}>
   <Nav currentPath={Astro.url.pathname} client:load />
   <main>
     <CaseStudyTemplate data={data} />

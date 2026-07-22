@@ -6,8 +6,17 @@ import { WhatsAppWidget } from '../components/WhatsAppWidget';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  ogType?: string;
 }
-const { title, description = "ClickCulture Digital is a marketing and creative agency in Nairobi that builds marketing which drives action, conversion, and growth." } = Astro.props;
+const {
+  title,
+  description = "ClickCulture Digital is a marketing and creative agency in Nairobi that builds marketing which drives action, conversion, and growth.",
+  image = "/icon-512x512.png",
+  ogType = "website",
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
 ---
 <!doctype html>
 <html lang="en" class="dark">
@@ -17,6 +26,38 @@ const { title, description = "ClickCulture Digital is a marketing and creative a
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="ClickCulture Digital" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ClickCulture Digital",
+      "url": "https://clickculturedigital.com",
+      "logo": "https://clickculturedigital.com/icon-512x512.png",
+      "description": "A marketing and creative agency in Nairobi that builds marketing which drives action, conversion, and growth.",
+      "email": "marketing@clickculturedigital.com",
+      "telephone": "+254727808264",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
+      }
+    })} />
   </head>
   <body class="bg-base text-text-primary">
     <slot />

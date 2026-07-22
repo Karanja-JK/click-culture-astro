@@ -73,6 +73,7 @@ export type CaseStudyRecord = {
   // Case study page
   subBrands: string;
   tagline: string;
+  metaDescription: string;
   challenge: string;
   whatWeDid: Array<{ lead: string; body: string }>;
   results: StatDef[];
@@ -96,6 +97,8 @@ export const CASE_STUDIES: CaseStudyRecord[] = [
     subBrands: "INTI · Meso · Bambino · Botanica × Mercado · Slate · Mercado",
     tagline:
       "Six restaurant concepts with genuine quality and no commercial story. We fixed that.",
+    metaDescription:
+      "How we turned six restaurant concepts into demand machines, selling out events in 24–72 hours.",
     challenge:
       "The Food Library Group was running six distinct restaurant concepts, each with real quality behind it, but marketing them on offers and discounts rather than desire. Their content was active but not persuasive. Events went underpromoted. There was no demand engine, only noise.",
     whatWeDid: [
@@ -194,6 +197,8 @@ export const CASE_STUDIES: CaseStudyRecord[] = [
     subBrands: "MAC · Shea Moisture · Note Cosmetics · Black Opal Kenya",
     tagline:
       "Global beauty brands, underperforming locally. We made them commercially relevant.",
+    metaDescription:
+      "How we rebuilt paid and organic channels to turn global beauty brands into local purchase drivers.",
     challenge:
       "Lintons was stocking strong global brands but local content wasn't driving purchase. Paid media was optimized for reach, not conversion. E-commerce was a massively underused revenue channel. The gap between brand awareness and transaction was wide.",
     whatWeDid: [
@@ -241,6 +246,8 @@ export const CASE_STUDIES: CaseStudyRecord[] = [
     subBrands: "Sunlight · Geisha · Royco · Axe · Pepsodent · Vaseline · Even & Lovely",
     tagline:
       "Seven brands, no unified rhythm. We built the structure that made them all move.",
+    metaDescription:
+      "How we brought structure, consistency, and compounding reach to a seven-brand FMCG portfolio.",
     challenge:
       "Unilever's portfolio needed discipline across social channels, distinct brand voices, cohesive monthly calendars, and an influencer strategy that scaled systematically rather than opportunistically. Posting adherence was at 40%. Engagement wasn't compounding.",
     whatWeDid: [
@@ -290,6 +297,8 @@ export const CASE_STUDIES: CaseStudyRecord[] = [
     subBrands: "",
     tagline:
       "In crowded fintech, we turned content into downloads, and downloads into retention.",
+    metaDescription:
+      "How we turned content into downloads, and downloads into retention, in crowded fintech.",
     challenge:
       "Chipper Cash needed accelerated growth in a market full of noise. Content was inconsistent, engagement wasn't converting into active app usage, and the goal was measurable: real downloads and long-term retention, not vanity reach.",
     whatWeDid: [
