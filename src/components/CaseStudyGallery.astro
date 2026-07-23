@@ -14,7 +14,7 @@ const { images, groups } = Astro.props;
 const hasContent = (images && images.length > 0) || (groups && groups.length > 0);
 ---
 {hasContent && (
-  <section class="border-b border-border py-24 md:py-32">
+  <section class="border-b border-border section-light py-24 md:py-32">
     <Container>
       <p data-reveal class="mb-16 text-xs uppercase tracking-[0.22em] text-text-muted">Gallery</p>
       {groups && groups.length > 0 ? (
