@@ -1,5 +1,6 @@
 ---
 import Container from './Container.astro';
+import SectionHeader from './SectionHeader.astro';
 
 const ITEMS = [
   { title: "Commercial Outcomes First", body: "Every strategy rooted in clear business objectives, focused on measurable results that impact the bottom line, not vanity metrics." },
@@ -14,12 +15,7 @@ const { class: className = "" } = Astro.props;
 ---
 <section class:list={["py-24 md:py-32", className]}>
   <Container>
-    <div data-reveal class="mb-16 max-w-2xl space-y-5">
-      <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Why Us</p>
-      <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
-        Why <span class="text-accent-hover">ClickCulture</span>?
-      </h2>
-    </div>
+    <SectionHeader eyebrow="Why Us" title="Why" accent="ClickCulture?" class="mb-16 max-w-2xl" />
     <div class="grid gap-y-14 sm:grid-cols-2 sm:gap-x-16 lg:gap-x-24">
       {ITEMS.map((item, i) => {
         const n = String(i + 1).padStart(2, "0");

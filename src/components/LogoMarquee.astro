@@ -1,0 +1,58 @@
+---
+import Container from './Container.astro';
+import SectionHeader from './SectionHeader.astro';
+import unileverLogo from '../assets/logos/unilever.svg';
+import chipperLogo from '../assets/logos/chipper-cash.svg';
+import macLogo from '../assets/logos/mac.svg';
+import lintonsLogo from '../assets/logos/lintons.webp';
+import sheaLogo from '../assets/logos/shea-moisture.webp';
+import foodLibraryLogo from '../assets/logos/food-library.webp';
+
+const logos = [
+  { src: unileverLogo.src, alt: "Unilever", heightClass: "h-8 md:h-10" },
+  { src: chipperLogo.src, alt: "Chipper Cash", heightClass: "h-6 md:h-7" },
+  { src: macLogo.src, alt: "MAC", heightClass: "h-6 md:h-7" },
+  { src: lintonsLogo.src, alt: "Lintons Beauty World", heightClass: "h-12 md:h-14" },
+  { src: sheaLogo.src, alt: "Shea Moisture", heightClass: "h-12 md:h-14" },
+  { src: foodLibraryLogo.src, alt: "The Food Library", heightClass: "h-9 md:h-11" },
+];
+---
+<section class="border-b border-border section-light py-16 md:py-20">
+  <Container>
+    <SectionHeader eyebrow="Trusted by" title="Teams that" accent="choose us back." />
+    <div class="marquee-viewport overflow-hidden rounded-2xl border border-border bg-surface/40 py-8 md:py-10">
+      <div class="marquee-track flex items-center gap-16 md:gap-24 px-8">
+        {logos.map((logo) => (
+          <img src={logo.src} alt={logo.alt} class={`marquee-logo ${logo.heightClass} w-auto flex-shrink-0`} loading="lazy" />
+        ))}
+        {logos.map((logo) => (
+          <img src={logo.src} alt={logo.alt} class={`marquee-logo ${logo.heightClass} w-auto flex-shrink-0`} loading="lazy" aria-hidden="true" />
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .marquee-track {
+    width: max-content;
+    animation: marquee-scroll 20s linear infinite;
+  }
+  @media (min-width: 768px) {
+    .marquee-track {
+      animation-duration: 30s;
+    }
+  }
+  .marquee-viewport:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>

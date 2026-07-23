@@ -1,0 +1,15 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  accent: string;
+  class?: string;
+}
+const { eyebrow, title, accent, class: className = "max-w-2xl" } = Astro.props;
+---
+<div data-reveal class:list={[className, "space-y-5"]}>
+  <p class="text-xs uppercase tracking-[0.22em] text-text-muted">{eyebrow}</p>
+  <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
+    {title} <span class="text-accent-hover">{accent}</span>
+  </h2>
+</div>

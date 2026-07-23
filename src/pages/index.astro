@@ -6,7 +6,8 @@ import { Nav } from '../components/Nav';
 import ServiceCard from '../components/ServiceCard.astro';
 import { SERVICES } from '../data/services';
 import ProcessStep from '../components/ProcessStep.astro';
-import LogoWall from '../components/LogoWall.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import WhyClickCulture from '../components/WhyClickCulture.astro';
 import CTASection from '../components/CTASection.astro';
 import WorkCard from '../components/WorkCard.astro';
@@ -75,15 +76,11 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
         <span class="block h-10 w-px animate-pulse bg-border"></span>
       </a>
     </section>
-    <section id="positioning" class="border-y border-border section-light py-24 md:py-32">
+    <LogoMarquee />
+    <section id="positioning" class="border-y border-border py-24 md:py-32">
       <Container>
         <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div data-reveal class="max-w-2xl space-y-5">
-            <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Principles</p>
-            <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
-              What We <span class="text-accent-hover">Believe.</span>
-            </h2>
-          </div>
+          <SectionHeader eyebrow="Principles" title="What We" accent="Believe." />
         </div>
         <div class="mt-16 grid items-start gap-12 xl:grid-cols-3">
           <p data-reveal class="font-display text-xl font-medium leading-tight tracking-tight text-text-primary xl:text-2xl">
@@ -104,15 +101,10 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
         </div>
       </Container>
     </section>
-    <section id="services" class="py-24 md:py-32">
+    <section id="services" class="section-light py-24 md:py-32">
       <Container>
         <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div data-reveal class="max-w-2xl space-y-5">
-            <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Services</p>
-            <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
-              What we do, <span class="text-accent-hover">end to end.</span>
-            </h2>
-          </div>
+          <SectionHeader eyebrow="Services" title="What we do," accent="end to end." />
         </div>
         <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s) => (
@@ -124,12 +116,7 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
     <section class="border-t border-border py-24 md:py-32">
       <Container>
         <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div data-reveal class="max-w-2xl space-y-5">
-            <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Featured Work</p>
-            <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
-              Brands that needed <span class="text-accent-hover">demand, not noise.</span>
-            </h2>
-          </div>
+          <SectionHeader eyebrow="Featured Work" title="Brands that needed" accent="demand, not noise." />
         </div>
         <div class="mt-16 grid gap-10 sm:grid-cols-2 lg:gap-x-12 lg:gap-y-24">
           {featuredWork.map((w, i) => (
@@ -143,12 +130,7 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
     <section class="border-t border-border section-light py-24 md:py-32">
       <Container>
         <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div data-reveal class="max-w-2xl space-y-5">
-            <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Results</p>
-            <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
-              Numbers that <span class="text-accent-hover">moved the business.</span>
-            </h2>
-          </div>
+          <SectionHeader eyebrow="Results" title="Numbers that" accent="moved the business." />
         </div>
         <div class="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <StatBlock value={24} suffix="h" label="Sell-out speed" client:visible />
@@ -161,12 +143,7 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
     <section class="border-t border-border py-24 md:py-32">
       <Container>
         <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div data-reveal class="max-w-2xl space-y-5">
-            <p class="text-xs uppercase tracking-[0.22em] text-text-muted">How we think</p>
-            <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
-              A process built for <span class="text-accent-hover">outcomes.</span>
-            </h2>
-          </div>
+          <SectionHeader eyebrow="How we think" title="A process built for" accent="outcomes." />
         </div>
         <div class="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <ProcessStep index={1} title="Drive Demand" description="We make people want what you sell, before they're ever pitched." />
@@ -180,21 +157,6 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
       </Container>
     </section>
     <WhyClickCulture class="border-t border-border bg-surface/30" />
-    <section class="border-t border-border section-light py-24 md:py-32">
-      <Container>
-        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div data-reveal class="max-w-2xl space-y-5">
-            <p class="text-xs uppercase tracking-[0.22em] text-text-muted">Trusted by</p>
-            <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] tracking-tight">
-              Teams that <span class="text-accent-hover">choose us back.</span>
-            </h2>
-          </div>
-        </div>
-        <div class="mt-16">
-          <LogoWall logos={["Unilever", "Chipper Cash", "Lintons Beauty", "MAC", "Shea Moisture", "Food Library"]} />
-        </div>
-      </Container>
-    </section>
     <CTASection />
   </main>
   <Footer />
