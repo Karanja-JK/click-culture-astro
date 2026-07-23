@@ -22,36 +22,40 @@ const hasContent = (images && images.length > 0) || (groups && groups.length > 0
           {groups.map((group) => (
             <div data-reveal>
               <h3 class="mb-6 font-display text-2xl font-medium text-text-primary">{group.name}</h3>
-              <div class="columns-2 gap-6 md:columns-3">
+              <div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
                 {group.images.map((img, i) => (
-                  <Image
-                    src={img}
-                    layout="constrained"
-                    width={1000}
-                    quality={100}
-                    format="webp"
-                    loading="lazy"
-                    class="relative mb-4 w-full rounded-xl border border-border break-inside-avoid transition-transform duration-300 ease-out hover:z-10 hover:scale-[1.06] hover:shadow-xl cursor-pointer"
-                    alt={`${group.name} photo ${i + 1}`}
-                  />
+                  <div class="group relative aspect-[4/5] overflow-hidden rounded-xl border border-border bg-surface">
+                    <Image
+                      src={img}
+                      layout="constrained"
+                      width={1000}
+                      quality={100}
+                      format="webp"
+                      loading="lazy"
+                      class="absolute inset-0 h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                      alt={`${group.name} photo ${i + 1}`}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <div class="columns-2 gap-6 md:columns-3">
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
           {images!.map((img, i) => (
-            <Image
-              src={img}
-              layout="constrained"
-              width={1000}
-              quality={100}
-              format="webp"
-              loading="lazy"
-              class="relative mb-4 w-full rounded-xl border border-border break-inside-avoid transition-transform duration-300 ease-out hover:z-10 hover:scale-[1.06] hover:shadow-xl cursor-pointer"
-              alt={`Gallery photo ${i + 1}`}
-            />
+            <div class="group relative aspect-[4/5] overflow-hidden rounded-xl border border-border bg-surface">
+              <Image
+                src={img}
+                layout="constrained"
+                width={1000}
+                quality={100}
+                format="webp"
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                alt={`Gallery photo ${i + 1}`}
+              />
+            </div>
           ))}
         </div>
       )}
