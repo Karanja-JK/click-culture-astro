@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "svgo": "^4.0.2",
-    "vite-tsconfig-paths": "^6.1.1"
+    "vite-tsconfig-paths": "^6.1.1",
+    "wrangler": "^4.114.0"
   }
 }
