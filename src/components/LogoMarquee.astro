@@ -9,12 +9,12 @@ import sheaLogo from '../assets/logos/shea-moisture.webp';
 import foodLibraryLogo from '../assets/logos/food-library.webp';
 
 const logos = [
-  { src: unileverLogo.src, alt: "Unilever", heightClass: "h-8 md:h-10" },
-  { src: chipperLogo.src, alt: "Chipper Cash", heightClass: "h-6 md:h-7" },
-  { src: macLogo.src, alt: "MAC", heightClass: "h-6 md:h-7" },
-  { src: lintonsLogo.src, alt: "Lintons Beauty World", heightClass: "h-12 md:h-14" },
-  { src: sheaLogo.src, alt: "Shea Moisture", heightClass: "h-12 md:h-14" },
-  { src: foodLibraryLogo.src, alt: "The Food Library", heightClass: "h-9 md:h-11" },
+  { src: unileverLogo.src, width: unileverLogo.width, height: unileverLogo.height, alt: "Unilever", heightClass: "h-8 md:h-10" },
+  { src: chipperLogo.src, width: chipperLogo.width, height: chipperLogo.height, alt: "Chipper Cash", heightClass: "h-6 md:h-7" },
+  { src: macLogo.src, width: macLogo.width, height: macLogo.height, alt: "MAC", heightClass: "h-6 md:h-7" },
+  { src: lintonsLogo.src, width: lintonsLogo.width, height: lintonsLogo.height, alt: "Lintons Beauty World", heightClass: "h-12 md:h-14" },
+  { src: sheaLogo.src, width: sheaLogo.width, height: sheaLogo.height, alt: "Shea Moisture", heightClass: "h-12 md:h-14" },
+  { src: foodLibraryLogo.src, width: foodLibraryLogo.width, height: foodLibraryLogo.height, alt: "The Food Library", heightClass: "h-9 md:h-11" },
 ];
 ---
 <section class="border-b border-border section-light py-16 md:py-20">
@@ -23,10 +23,10 @@ const logos = [
     <div class="marquee-viewport overflow-hidden rounded-2xl border border-border bg-surface/40 py-8 md:py-10">
       <div class="marquee-track flex items-center gap-16 md:gap-24 px-8">
         {logos.map((logo) => (
-          <img src={logo.src} alt={logo.alt} class={`marquee-logo ${logo.heightClass} w-auto flex-shrink-0`} loading="lazy" />
+          <img src={logo.src} width={logo.width} height={logo.height} alt={logo.alt} class={`marquee-logo ${logo.heightClass} w-auto flex-shrink-0`} loading="lazy" />
         ))}
         {logos.map((logo) => (
-          <img src={logo.src} alt={logo.alt} class={`marquee-logo ${logo.heightClass} w-auto flex-shrink-0`} loading="lazy" aria-hidden="true" />
+          <img src={logo.src} width={logo.width} height={logo.height} alt={logo.alt} class={`marquee-logo ${logo.heightClass} w-auto flex-shrink-0`} loading="lazy" aria-hidden="true" />
         ))}
       </div>
     </div>

@@ -70,7 +70,7 @@ export function Nav({ currentPath }: Props) {
       >
         <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between px-6 md:px-10 lg:px-14">
           <a href="/" onClick={scrollTopIfHome} className="flex items-center gap-3 group">
-            <img src="/logo-mark.png" alt="ClickCulture Digital" className="h-9 w-9 object-contain" />
+            <img src="/logo-mark.png" width={1280} height={953} alt="ClickCulture Digital" className="h-9 w-9 object-contain" />
             <span className="hidden font-display text-base font-semibold tracking-tight text-text-primary sm:inline">
               ClickCulture<span className="text-accent-hover">.</span>
             </span>
@@ -103,7 +103,7 @@ export function Nav({ currentPath }: Props) {
       >
         <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between px-6 md:px-10 lg:px-14">
           <a href="/" onClick={(e) => { setOpen(false); scrollTopIfHome(e); }} className="flex items-center gap-3">
-            <img src="/logo-mark.png" alt="ClickCulture" className="h-9 w-9 object-contain" />
+            <img src="/logo-mark.png" width={1280} height={953} alt="ClickCulture" className="h-9 w-9 object-contain" />
             <span className="font-display text-base font-semibold">ClickCulture.</span>
           </a>
           <button aria-label="Close menu" onClick={() => setOpen(false)} className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border">
