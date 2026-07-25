@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Nav } from '../components/Nav';
 import Footer from '../components/Footer.astro';
 import Container from '../components/Container.astro';
 import { Button } from '../components/Button';
@@ -15,7 +14,6 @@ const BELIEFS = [
 ];
 ---
 <Layout title="About: ClickCulture Digital" description="We don't create content. We create demand. A Nairobi-based marketing agency built for commercial outcomes.">
-  <Nav currentPath={Astro.url.pathname} client:load />
   <main>
     <section class="relative flex min-h-screen items-center overflow-hidden pb-20 pt-32">
       <div class="pointer-events-none absolute inset-0 -z-10">

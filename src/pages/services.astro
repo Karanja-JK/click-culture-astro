@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Nav } from '../components/Nav';
 import Footer from '../components/Footer.astro';
 import Container from '../components/Container.astro';
 import { Button } from '../components/Button';
@@ -8,7 +7,6 @@ import { ServicePanel } from '../components/ServicePanel';
 import { SERVICES } from '../data/services';
 ---
 <Layout title="Services: ClickCulture Digital" description="Four capabilities, one mandate: make your marketing work for real.">
-  <Nav currentPath={Astro.url.pathname} client:load />
   <main>
     <section class="border-b border-border pb-16 pt-40">
       <Container>

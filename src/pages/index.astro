@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
 import { Button } from '../components/Button';
-import { Nav } from '../components/Nav';
 import ServiceCard from '../components/ServiceCard.astro';
 import { SERVICES } from '../data/services';
 import ProcessStep from '../components/ProcessStep.astro';
@@ -36,7 +35,6 @@ const featuredWork = CASE_STUDIES.filter((c) => c.featured).map((c) => ({
 }));
 ---
 <Layout title="ClickCulture Digital: We don't create content. We create demand." description="A marketing and creative agency that builds marketing which drives action, conversion, and growth.">
-  <Nav currentPath={Astro.url.pathname} client:load />
   <main>
     <section class="relative flex min-h-screen items-center overflow-hidden pt-32 pb-32 md:pb-40">
       <div class="pointer-events-none absolute inset-0 -z-10">

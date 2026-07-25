@@ -2,7 +2,9 @@
 import '../styles/global.css';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/fraunces';
+import { ClientRouter } from 'astro:transitions';
 import { WhatsAppWidget } from '../components/WhatsAppWidget';
+import { Nav } from '../components/Nav';
 interface Props {
   title: string;
   description?: string;
@@ -58,10 +60,12 @@ const ogImageURL = new URL(image, Astro.site);
         "addressCountry": "KE"
       }
     })} />
+    <ClientRouter />
   </head>
   <body class="bg-base text-text-primary">
+    <Nav currentPath={Astro.url.pathname} client:load transition:persist />
     <slot />
-    <WhatsAppWidget client:load />
+    <WhatsAppWidget client:load transition:persist />
     <script src="/scripts/scroll-reveal.js" is:inline></script>
   </body>
 </html>

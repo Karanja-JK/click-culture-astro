@@ -19,8 +19,4 @@ function initScrollReveal() {
   );
   nodes.forEach((el) => io.observe(el));
 }
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initScrollReveal);
-} else {
-  initScrollReveal();
-}
+document.addEventListener('astro:page-load', initScrollReveal);
