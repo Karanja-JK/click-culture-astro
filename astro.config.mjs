@@ -9,6 +9,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://clickculturedigital.com',
   integrations: [react(), sitemap()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport'
+  },
   vite: {
     plugins: [tailwindcss(), tsconfigPaths()]
   }

@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/fraunces';
 import { ClientRouter } from 'astro:transitions';
@@ -25,6 +27,8 @@ const ogImageURL = new URL(image, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={frauncesLatin} as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <title>{title}</title>
     <meta name="description" content={description} />
