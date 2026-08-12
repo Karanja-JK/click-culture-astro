@@ -41,7 +41,7 @@ const WORK_IMAGES: Record<string, ImageMetadata> = {
               <div class="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
                 <div data-reveal class:list={["relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border", `bg-gradient-to-br ${toneClass}`, "transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-accent", isFlipped && "lg:order-2"]}>
                   {image ? (
-                    <Image src={image} loading="lazy" quality={100} format="webp" width={800} class="absolute inset-0 h-full w-full object-cover" alt={c.client} />
+                    <Image src={image} loading="lazy" quality={80} format="webp" width={800} class="absolute inset-0 h-full w-full object-cover" alt={c.client} />
                   ) : (
                     <div class="absolute inset-0 flex items-center justify-center">
                       <span class="font-display text-[clamp(5rem,10vw,8rem)] font-medium leading-none text-text-primary/10 transition-all duration-700 group-hover:text-text-primary/20">{c.initials}</span>
