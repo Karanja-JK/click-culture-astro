@@ -13,6 +13,9 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: 'viewport'
   },
+  build: {
+    inlineStylesheets: 'always'
+  },
   vite: {
     plugins: [tailwindcss(), tsconfigPaths()]
   }
